@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Ticketee</title>
+    <title>
+      <% if content_for?(:title) %>
+          <%= yield(:title) %>
+      <% else %>
+          Ticketee
+      <% end %>
+    </title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +15,9 @@
   </head>
 
   <body>
+    <% flash.each do |key, message| %>
+        <div><%= message %></div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
