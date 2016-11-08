@@ -13,6 +13,7 @@ gem 'jbuilder', '~> 2.5'
 gem "bootstrap-sass"
 gem "font-awesome-rails"
 gem "simple_form"
+gem "devise"
 
 group :development, :test do
   gem 'byebug', platform: :mri
