@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :roles
+
   def to_s
     "#{email} (#{admin? ? "Admin" : "User"})"
   end
@@ -21,4 +23,8 @@ class User < ApplicationRecord
   end
 
   scope :excluding_archived, lambda { where(archived_at: nil) }
+
+  def role_on(project)
+    roles.find_by(project_id: project).try(:role)
+  end
 end
