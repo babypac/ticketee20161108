@@ -4,4 +4,5 @@ class Ticket < ApplicationRecord
   validates :name, :description, presence: true
   validates :description, length: { maximum: 1000 }
   validates :description, length: { minimum: 10 }
+  mount_uploader :attachment, AttachmentUploader
 end

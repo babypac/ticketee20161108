@@ -15,6 +15,7 @@ gem "font-awesome-rails"
 gem "simple_form"
 gem "devise"
 gem 'pundit', '~> 1.1'
+gem 'carrierwave'
 
 group :development, :test do
   gem 'byebug', platform: :mri
